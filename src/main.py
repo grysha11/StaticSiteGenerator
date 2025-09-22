@@ -1,15 +1,11 @@
 from textnode import TextNode, TextType
-from htmlnode import HtmlNode
+from htmlnode import HtmlNode, LeafNode
 
 def main():
-    childrenNode = HtmlNode("h1", "hello from child node", None, None)
-    childrenNode2 = HtmlNode("a", None, None, {
-        "href" : "https://boot.dev/courses",
-        "target" : "GO STUDY"
-    })
-    kids = [childrenNode, childrenNode2]
-    node = HtmlNode("p", "this is a parent node", kids, None)
-    print(node)
+    leaf1 = LeafNode("p", "This is a paragraph of text.").to_html()
+    leaf2 = LeafNode("a", "Click me!", {"href": "https://www.google.com"}).to_html();
+    print(f"leaf1 is : {leaf1}")
+    print(f"leaf2 is : {leaf2}")
 
 if __name__ == "__main__":
     main()
